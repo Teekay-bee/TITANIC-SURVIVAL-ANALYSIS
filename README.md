@@ -205,6 +205,10 @@ While this analysis offers key insights, it is important to recognize certain li
 3. **Contextual Gaps** – Statistical findings cannot fully capture the emotional, cultural, or situational factors that shaped individual survival.  
 
 ---
-## About 
+ 
+## About me
+- I transform complex data into clear, actionable insights.
+Using analytics, machine learning, and visualization, I help you understand trends, improve efficiency, and plan for the future.
 
+Connect with me @https://www.linkedin.com/in/adetokunbo-olasupo-70aa042a1
 
