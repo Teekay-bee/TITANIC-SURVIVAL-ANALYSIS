@@ -67,7 +67,7 @@ titanic-survival-analysis/
 
 All cleaning was performed in **Microsoft Excel.
 
-![Image](Cleaned.png)
+![Image](Cleaned.PNG)
 
 ### Missing Value Treatment
 
@@ -104,7 +104,7 @@ Six new columns were created using Excel formulas and Power Query:
 
 ## 📈 Dashboard 1 — Survival Analysis
 
-![Dashboard](Pg1.Png)
+![Dashboard](pg1.png)
 > *Survival by Class, Gender & Age Group*
 
 ### Survival by Passenger Class
