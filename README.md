@@ -1,214 +1,257 @@
-# Titanic Survival Analysis 
-#### " A Microsoft Excel analysis to uncover factors that influenced Titanic survival rates"
-![Image](Excel_logo.png)
----
-## Introduction 
-On April 15, 1912,approximately 113 years ago the RMS Titanic sank during its maiden voyage from Southampton,England to Newyork after colliding with an iceberg in the North Atlantic Ocean.
-This historical disaster claimed the lives of many, and remains the deadliest maritime tragedies in history.
+# 🚢 RMS Titanic Survival Analysis
 
-This project revisits the tragedic event of 1912 through data analysis to uncover common patterns among survivors.
+> *Could Passenger Class, Gender and Age have been a common pattern among Survivors?*  
+> *Higher fares were associated with greater survival chances.*
 
----
-## Problem Statement 
-Despite the reported 2,224 passengers she was carrying, survival chances aboard the Titanic were not evenly distributed. Apparently, When the distress call was made factors such as P assenger class, gender, and age appeared to have played a significant role in determining who lived and who perished. 
-
-The Understanding of these disparities is crucial for uncovering the social and structural dynamics that influenced survival during this tragedy. Hence, the aim of this analysis is to investigate how factors such as passengers class, gender and age influence survival rate. 
-
----
-## Project Workflow 
-![Image](Project_Workflow.jpg)
----
-## Data Source 
-
-The dataset used for this project is a well-known resource in the data space and is available on Kaggle:  
-[Titanic Dataset on Kaggle](https://www.kaggle.com/datasets/brendan45774/test-file)  
-
-It contains information on **1,309 passengers** out of the 2,224 on board the Titanic, excluding crew members.  
-This provides a suitable sample size for meaningful analysis of survival patterns across different passenger groups.
-___
-
-
-## Raw Data 
-
-The downloaded dataset was imported into Microsoft Excel and opened in its raw form as shown below with 14 columns of raw passenger information requiring cleaning for further analysis.
-
-![Image preview](Raw_dataset.JPG)
-
-The information in each column above has the following features:
-
-1. **pclass** — Passenger Class (1 = 1st; 2 = 2nd; = 3rd)  
-2. **survived** — Survival (0 = No; 1 = Yes)  
-3. **name** — Name  
-4. **sex** — Sex  ( Male or Female)
-5. **age** — Age  
-6. **sibsp** — Number of Siblings/Spouses Aboard  
-7. **parch** — Number of Parents/Children Aboard  
-8. **ticket** — Ticket Number  
-9. **fare** — Passenger Fare  
-10. **cabin** — Cabin  
-11. **embarked** — Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton)  
-12. **boat** — Lifeboat (if survived)  
-13. **body** — Body number (if did not survive and body was recovered)  
-14. **home_dest** — Destination
-
----
-## Data Cleaning Process 
-
-The Titanic dataset required several cleaning steps to prepare it for analysis. Below is the structured **step-by-step process**:  
-
-1. **Initial Inspection**  
-   - Applied filters on each column to understand the dataset and identify issues.  
-
-2. **Column Renaming & Replacements**  
-   - Renamed **Passenger Class** column → *1st, 2nd, 3rd class*.  
-   - Replaced **Survival Status** codes → *1 = Survived, 0 = Victim*.  
-
-3. **Name Standardization**  
-   - Split the *Name* column into *Title, First Name, Last Name* (using *Text-to-Columns*).  
-   - Reconstructed the full name using the *CONCAT/CONCATENATE* function.  
-
-4. **Gender Standardization**  
-   - Converted all values in the *Sex* column to **Proper Case** (e.g., *male → Male*, *female → Female*).  
-
-5. **Handling Missing Ages**  
-   - Found **263 missing ages** out of 1,309 records (~20%).  
-   - Since missing values were < 30%, imputed them using the **Median Age = 28**.  
-   - Median was chosen as it is resistant to outliers. 
-   - created the age- group column,to categories the ages of passengers using the IF function to assign each passenger to an age group.
-   - (0 - 16= Children,17 - 33 = Youths,34 - 50 = Adults,51 -64 = Middle Aged,65+ = Elderlys)
-
-6. **Family Size Feature Creation**  
-   - Created a new **Family Members** column by adding:  
-     `sibsp + parch`.  
-
-7. **Ticket Column**  
-   - Dropped the *Ticket Number* column as it was not relevant for analysis.  
-
-8. **Fare Column**  
-   - Rounded fares to the nearest whole number and added currency (euros).  
-   - Note: Historical reference suggests **3rd class tickets cost ~3–8 euros** in 1912.  
-   - Passengers with **0 fare** were assumed to have boarded illegally or under special cases.  
-
-9. **Cabin Column**  
-   - Dropped the *Cabin* column since **1,014 cells (~77%)** were empty.  
-
-10. **Boat & Body Columns**  
-    - Deleted both columns since missing values were > 70% and not relevant to the analysis.  
-
-11. **Embarked Column**  
-    - Renamed column to **Port Embarked From**.  
-    - Replaced codes with full names:  
-      - **S → Southampton**  
-      - **C → Cherbourg**  
-      - **Q → Queenstown**
+![Excel](https://img.shields.io/badge/Tool-Microsoft%20Excel-217346?style=flat&logo=microsoftexcel&logoColor=white)
+![Dataset](https://img.shields.io/badge/Dataset-Kaggle%20Titanic-20BEFF?style=flat&logo=kaggle&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-gold?style=flat)
+![Dashboards](https://img.shields.io/badge/Dashboards-2-0D1B3E?style=flat)
 
 ---
 
-## Cleaned Data 
+## 📌 Project Overview
 
-![Image preview](Cleaned_dataset.JPG)
+On **April 15, 1912**, the RMS Titanic sank during her maiden voyage from Southampton, England to New York City after striking an iceberg in the North Atlantic Ocean. The disaster claimed over 1,500 lives — one of the deadliest peacetime maritime disasters in history.
 
+This project revisits the tragedy through **data analytics**, using **Microsoft Excel** as the sole tool for data cleaning, transformation, analysis, and visualization. The goal is to determine whether passenger class, gender, age, and fare paid significantly influenced **who survived and who perished**.
 
-After general cleaning the dataset became **structured, consistent, and ready for further analysis.** to draw insight and identify patterns 
-
----
-
-## Analysis and Calculations
-
-Pivot tables and charts where used for analysis and calculations of KPI's and other metrics like
-
-   - Survivors by Passenger Class
-
-   - Survivors by Gender
-
-   - Survivors by Age group 
-
-![Image preview](E.D.A.JPG)
+**Two interactive dashboards** tell the complete story:
+- **Dashboard 1** — Survival patterns by Class, Gender & Age
+- **Dashboard 2** — Economic influence on survival (fare analysis)
 
 ---
 
-## KPI's 
+## 📊 Key Metrics at a Glance
 
-![Image preview](KPI's.jpg) 
-
-- A total of **1,309 passengers** were onboard the Titanic.  
-- The **survival rate was 38%**, meaning just over one-third of passengers survived.  
-- The **death rate was 68%**, indicating that more than two-thirds of passengers perished, highlighting the tragedy’s scale.  
-- The **average passenger age was 30 years**, suggesting that most onboard were relatively young adults.  
-
-- #### The KPI's reflect the severity of the disaster, with a low survival ratio as compared to the death ratio and predominantly young passengers on board.
-
----
-## Data Visualization (Dashboard) 
-
-![Dashboard preview](Titanic_Dashboard.jpg)
-### Exploratory Dashboard
-
----
-## Insights 
-
-![image preview](Survivors_class.png)
-
-### 1. Survivors by Class  
-- **First Class:** First class passengers go had the best survival outcomes (**200 survived vs 123 perished**) due to proximity to lifeboats and quicker access to the deck.  
-
-- **Second Class:** Mixed results (**119 survived vs 158 perished**) reflecting their intermediate position onboard.  
-- **Third Class:** The 3rd class passengers were the most disadvantaged (**528 deaths vs 181 survivors**).lower-deck locations, and class divisions critically reduced their chances survival.  
----
-
-![image preview](Survivors_gender.jpg)
-
-### 2. Survivors by Gender  
-- **Females:** Significantly had higher survival rate (**339 survived vs 127 perished**) due to the "women and children first" policy.  
-- **Males:** Disproportionately affected (**682 deaths vs 161 survivors**), making up the majority of victims.  
+| Metric | Value |
+|--------|-------|
+| Total Passengers | 1,309 |
+| Total Survivors | 500 |
+| Survival Rate | **38%** |
+| Death Rate | **62%** |
+| Avg Fare (Survivors) | **€49.36** |
+| Avg Fare (Victims) | **€23.32** |
+| Fare Disparity | **€26.04 (+112%)** |
 
 ---
 
-![image preview](Survivors_age.jpg)
+## 🗂️ Repository Structure
 
-### 3. Survivors by Age Group  
-- **Youths (17–33 years):*** The youths were the largest group onboard but also had the highest number of deaths (**532 victims vs 280 survivors**). Being young did not guarantee survival,and likely due to limited access to lifeboats.  
-
-- **Children (0–16 years):** Higher survival chance (**74 survived vs 60 perished**), suggesting they were prioritized during evacuation.  
-
-- **Elderly (65+ years):** Most vulnerable, with only **2 survivors** compared to **11 deaths**, reflecting physical limitations in the chaos.
-
- #### Summary   
-The Titanic disaster starkly revealed how **age, gender, and social class shaped survival chances**.  
-
-- Women and children were prioritized, especially in higher classes.  
-- Men, particularly young men in third class, bore the greatest losses.  
-- First-class passengers benefitted from privilege and proximity, while third-class passengers suffered from both **physical barriers** and **social inequalities**.  
-
-*This tragedy is not just statistics — it reflects the harsh reality of structural inequality in a life-and-death situation*
-
----
-## Conclusion
-
-The analysis of the Titanic dataset highlights how survival was **unevenly distributed across age, gender, and class**.
-  
-- **Women and children**, particularly those in higher classes, had the highest chances of survival. 
- 
-- **Men**, especially those from third class, faced overwhelming losses.  
-- **Class privilege** and **physical access to lifeboats** played a decisive role in determining life or death outcomes.  
-
-- Overall, the tragedy reflects how **social structures and inequalities** directly influenced survival during the disaster, turning a maritime accident into a profound lesson on human vulnerability and privilege.  
----
-## Limitation 
-
-While this analysis offers key insights, it is important to recognize certain limitations: 
- 
-1. **Incomplete Data** – The dataset covers only **1,309 passengers out of 2,224**, excluding crew members, which limits the completeness of the analysis.  
-
-2. The analysis only covers Class,gender and Age,other metrics such as Fare,family size was not covered,which could also has an effect on survivors.
-   
-3. **Contextual Gaps** – Statistical findings cannot fully capture the emotional, cultural, or situational factors that shaped individual survival.  
+```
+titanic-survival-analysis/
+│
+├── data/
+│   ├── titanic_raw.csv                     # Original Kaggle dataset (1,309 rows)
+│   └── titanic_cleaned.xlsx                # Cleaned dataset with Power Query steps
+│
+├── dashboards/
+│   └── titanic_dashboard.xlsx              # Interactive Excel dashboards (2 pages)
+│
+├── docs/
+│   └── titanic_project_documentation.docx # Full project documentation
+│
+├── web/
+│   └── titanic_operation_rescue.html       # QR code landing page
+│
+├── assets/
+│   ├── dashboard_1_preview.png             # Survival Analysis dashboard screenshot
+│   └── dashboard_2_preview.png             # Economic Influence dashboard screenshot
+│
+└── README.md
+```
 
 ---
- 
-## About me
-- I transform complex data into clear, actionable insights.
-Using analytics, machine learning, and visualization, I help you understand trends, improve efficiency, and plan for the future.
 
-Connect with me @https://www.linkedin.com/in/adetokunbo-olasupo-70aa042a1
+## 🧹 Data Cleaning & Transformation
 
+All cleaning was performed in **Microsoft Excel Power Query (Get & Transform)**. Every transformation is logged as an *Applied Step* in the workbook for full reproducibility.
+
+### Missing Value Treatment
+
+| Column | Missing | % Missing | Resolution |
+|--------|---------|-----------|------------|
+| Age | 263 | 20.1% | Median imputation grouped by Pclass & Sex |
+| Cabin | 1,014 | 77.5% | Excluded — too sparse for analysis |
+| Embarked | 2 | 0.15% | Replaced with mode value ('S' — Southampton) |
+| Fare | 1 | 0.08% | Replaced with class-level median |
+
+### Engineered Columns
+
+Six new columns were created using Excel formulas and Power Query:
+
+| New Column | Formula Logic | Purpose |
+|-----------|---------------|---------|
+| `Survived_Label` | `IF(Survived=1,"Survived","Victim")` | Readable chart labels |
+| `Class_Label` | Nested `IF` on Pclass | Full class name display |
+| `Age_Group` | Nested `IF` on Age ranges | Life-stage segmentation |
+| `Port_Full` | `SWITCH` on Embarked code | Full port names |
+| `Family_Size` | `SibSp + Parch + 1` | Total family unit size |
+| `Is_Alone` | `IF(Family_Size=1,"Alone","With Family")` | Solo traveller flag |
+
+### Age Group Definitions
+
+| Group | Age Range |
+|-------|-----------|
+| Children | 0 – 16 |
+| Youths | 17 – 33 |
+| Adults | 34 – 49 |
+| Middle Aged | 50 – 64 |
+| Elderly | 65+ |
+
+---
+
+## 📈 Dashboard 1 — Survival Analysis
+
+> *Survival by Class, Gender & Age Group*
+
+### Survival by Passenger Class
+
+| Class | Passengers | Survived | Perished | Survival Rate |
+|-------|-----------|---------|---------|--------------|
+| 1st Class | 323 | 200 | 123 | **62%** |
+| 2nd Class | 277 | 119 | 158 | **43%** |
+| 3rd Class | 709 | 181 | 528 | **25%** |
+| **Total** | **1,309** | **500** | **809** | **38%** |
+
+> 💡 **Insight:** 1st Class passengers survived at a rate **2.5× higher** than 3rd Class (62% vs 25%). Despite comprising 54% of all passengers, 3rd Class accounted for 65% of all victims.
+
+### Survival by Gender
+
+| Gender | Passengers | Survived | Perished | Survival Rate |
+|--------|-----------|---------|---------|--------------|
+| Female | 466 | 339 | 127 | **73%** |
+| Male | 843 | 161 | 682 | **19%** |
+
+> 💡 **Insight:** Female passengers survived at nearly **4× the rate** of male passengers (73% vs 19%). The *"women and children first"* maritime evacuation protocol demonstrably shaped outcomes.
+
+### Survival by Age Group
+
+| Age Group | Total | Survived | Perished | Survival Rate |
+|-----------|-------|---------|---------|--------------|
+| Children (0–16) | 134 | 74 | 60 | **55%** |
+| Youths (17–33) | 532 | 280 | 252 | **53%** |
+| Adults (34–49) | 253 | 102 | 151 | **40%** |
+| Middle Aged (50–64) | 97 | 42 | 55 | **43%** |
+| Elderly (65+) | 13 | 2 | 11 | **15%** |
+
+> 💡 **Insight:** Children had the highest survival rate (55%) thanks to evacuation priority. Only **2 of 13** elderly passengers (65+) survived — a 15% rate, the lowest of any group.
+
+---
+
+## 💰 Dashboard 2 — Economic Influence on Survival
+
+> *Higher fares were associated with greater survival chances*
+
+### Fare KPIs
+
+| Metric | Value |
+|--------|-------|
+| Avg Passenger Fare | €33.27 |
+| Avg Fare — Survivors | **€49.36** |
+| Avg Fare — Victims | **€23.32** |
+| Fare Disparity | **€26.04** |
+
+### Fare by Class, Port & Outcome
+
+| Class | Port | Survived (Avg Fare) | Victim (Avg Fare) |
+|-------|------|--------------------|--------------------|
+| 1st Class | Cherbourg | €114.79 | €89.33 |
+| 1st Class | Queensland | €90.00 | €90.00 |
+| 1st Class | Southampton | €82.12 | €59.49 |
+| 2nd Class | Cherbourg | €24.27 | €22.00 |
+| 2nd Class | Queensland | €12.35 | €11.49 |
+| 2nd Class | Southampton | €23.02 | €19.91 |
+| 3rd Class | Cherbourg | €12.89 | €9.94 |
+| 3rd Class | Queensland | €10.10 | €10.55 |
+| 3rd Class | Southampton | €14.01 | €14.51 |
+
+> 💡 **Insight:** In nearly every class-port combination, survivors paid **higher fares** than victims. Wealth provided a survival advantage at the micro-level — not just between classes, but within them.
+
+### Avg Fare by Gender
+
+| Gender | Avg Fare |
+|--------|----------|
+| Female | **€46.20** |
+| Male | **€26.12** |
+
+---
+
+## 🔍 Key Findings
+
+1. **Class privilege was a matter of life and death** — 1st Class passengers survived at 62%, more than 2.5× the 3rd Class rate of 25%. The ship's architecture reinforced social hierarchy: upper-deck cabins meant faster lifeboat access.
+
+2. **Gender was the single strongest individual predictor** — Women survived at 73%; men at just 19% — a 54 percentage point gap. The *"women and children first"* protocol was actively enforced and shows unmistakably in the data.
+
+3. **Economic power compounded survival advantage** — Survivors paid more than twice what victims paid (€49.36 vs €23.32). This held within every class and every port — wealth bought survival in the most literal sense.
+
+4. **Age ran from favoured (children) to most disadvantaged (elderly)** — Children benefited from evacuation priority. Only 2 of 13 elderly passengers (65+) survived — a 15% rate, the lowest of any group.
+
+5. **Port of embarkation reflected class composition** — Cherbourg passengers paid the highest average fares (€62.34 avg) and had the best survival outcomes, driven by a heavily 1st Class composition.
+
+---
+
+## ⚠️ Limitations
+
+- **Age imputation:** 263 values (20%) were imputed using class- and gender-grouped medians. Some imprecision in age-based analysis is possible.
+- **Cabin data:** 77.5% missing — deck-level proximity analysis was not feasible.
+- **Passengers only:** No crew data is included in this dataset.
+- **Correlation ≠ Causation:** All findings are patterns and associations, not causal claims.
+- **Currency:** Fares are in 1912 British pounds, used only for relative comparison.
+
+---
+
+## 🛠️ Tools & Skills Demonstrated
+
+| Tool / Skill | Application |
+|-------------|-------------|
+| **Power Query** | Data import, cleaning pipeline, null handling, type conversion, column engineering |
+| **Excel Formulas** | `IF`, `SWITCH`, nested IFs for feature engineering |
+| **Pivot Tables** | Multi-dimensional aggregation by class, gender, age, port, outcome |
+| **Excel Charts** | Clustered bars, stacked bars, doughnut charts |
+| **Dashboard Design** | Two-page interactive dashboards with Slicers for dynamic filtering |
+| **Data Storytelling** | Structured narrative from problem statement through insight to conclusion |
+
+---
+
+## 🚀 How to Use
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/Teekay-bee/titanic-survival-analysis.git
+   cd titanic-survival-analysis
+   ```
+
+2. **Explore the cleaning pipeline**  
+   Open `data/titanic_cleaned.xlsx` → Data tab → Queries & Connections → view all Power Query Applied Steps
+
+3. **Interact with the dashboards**  
+   Open `dashboards/titanic_dashboard.xlsx` → use the **Slicers** (Class, Gender, Age Group) to filter all charts dynamically
+
+4. **Scan the QR code** on the dashboard to open the web summary page
+
+> **Requirements:** Microsoft Excel 2016 or later. No additional software, scripts, or packages required.
+
+---
+
+## 📄 Full Documentation
+
+Detailed project documentation is in [`docs/titanic_project_documentation.docx`](docs/titanic_project_documentation.docx), covering:
+- Step-by-step data cleaning in Power Query
+- Analysis framework and methodology
+- Dashboard breakdowns with full data tables
+- Conclusions and limitations
+
+---
+
+## 📬 Connect
+
+**Author:** Teekay-bee  
+**Project:** Operation Rescue — RMS Titanic Survival Analysis  
+**Date:** April 2025
+
+If you found this useful, feel free to ⭐ **star the repo** or open an issue with feedback!
+
+---
+
+*"The Titanic's lifeboats were not allocated by luck — they were, in effect, priced."*
