@@ -1,7 +1,7 @@
-# 🚢 RMS Titanic Survival Analysis
+#  RMS Titanic Survival Analysis
 
-> *Could Passenger Class, Gender and Age have been a common pattern among Survivors?*  
-> *Higher fares were associated with greater survival chances.*
+> **Could Passenger Class, Gender and Age have been a common pattern among Survivors?**
+> **Higher fares were associated with greater survival chances.**
 ![Dashboard](Stacked.png)
 ![Excel](https://img.shields.io/badge/Tool-Microsoft%20Excel-217346?style=flat&logo=microsoftexcel&logoColor=white)
 ![Dataset](https://img.shields.io/badge/Dataset-Kaggle%20Titanic-20BEFF?style=flat&logo=kaggle&logoColor=white)
@@ -67,6 +67,8 @@ titanic-survival-analysis/
 
 All cleaning was performed in **Microsoft Excel.
 
+![Image](Cleaned.png)
+
 ### Missing Value Treatment
 
 | Column | Missing | % Missing | Resolution |
@@ -102,7 +104,7 @@ Six new columns were created using Excel formulas and Power Query:
 
 ## 📈 Dashboard 1 — Survival Analysis
 
-![Dashboard](Pg1.png)
+![Dashboard](Pg1.Png)
 > *Survival by Class, Gender & Age Group*
 
 ### Survival by Passenger Class
