@@ -2,7 +2,7 @@
 
 > *Could Passenger Class, Gender and Age have been a common pattern among Survivors?*  
 > *Higher fares were associated with greater survival chances.*
-
+![Dashboard](Stacked.png)
 ![Excel](https://img.shields.io/badge/Tool-Microsoft%20Excel-217346?style=flat&logo=microsoftexcel&logoColor=white)
 ![Dataset](https://img.shields.io/badge/Dataset-Kaggle%20Titanic-20BEFF?style=flat&logo=kaggle&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Completed-gold?style=flat)
@@ -65,7 +65,7 @@ titanic-survival-analysis/
 
 ## 🧹 Data Cleaning & Transformation
 
-All cleaning was performed in **Microsoft Excel Power Query (Get & Transform)**. Every transformation is logged as an *Applied Step* in the workbook for full reproducibility.
+All cleaning was performed in **Microsoft Excel.
 
 ### Missing Value Treatment
 
@@ -87,7 +87,6 @@ Six new columns were created using Excel formulas and Power Query:
 | `Age_Group` | Nested `IF` on Age ranges | Life-stage segmentation |
 | `Port_Full` | `SWITCH` on Embarked code | Full port names |
 | `Family_Size` | `SibSp + Parch + 1` | Total family unit size |
-| `Is_Alone` | `IF(Family_Size=1,"Alone","With Family")` | Solo traveller flag |
 
 ### Age Group Definitions
 
@@ -103,6 +102,7 @@ Six new columns were created using Excel formulas and Power Query:
 
 ## 📈 Dashboard 1 — Survival Analysis
 
+![Dashboard](Pg1.png)
 > *Survival by Class, Gender & Age Group*
 
 ### Survival by Passenger Class
@@ -140,6 +140,8 @@ Six new columns were created using Excel formulas and Power Query:
 ---
 
 ## 💰 Dashboard 2 — Economic Influence on Survival
+
+![Dashboard](Pg2.png)
 
 > *Higher fares were associated with greater survival chances*
 
@@ -205,8 +207,7 @@ Six new columns were created using Excel formulas and Power Query:
 
 | Tool / Skill | Application |
 |-------------|-------------|
-| **Power Query** | Data import, cleaning pipeline, null handling, type conversion, column engineering |
-| **Excel Formulas** | `IF`, `SWITCH`, nested IFs for feature engineering |
+| **Excel Formulas** | `IF`, nested IFs for feature engineering |
 | **Pivot Tables** | Multi-dimensional aggregation by class, gender, age, port, outcome |
 | **Excel Charts** | Clustered bars, stacked bars, doughnut charts |
 | **Dashboard Design** | Two-page interactive dashboards with Slicers for dynamic filtering |
@@ -222,33 +223,20 @@ Six new columns were created using Excel formulas and Power Query:
    cd titanic-survival-analysis
    ```
 
-2. **Explore the cleaning pipeline**  
-   Open `data/titanic_cleaned.xlsx` → Data tab → Queries & Connections → view all Power Query Applied Steps
-
-3. **Interact with the dashboards**  
+2. **Interact with the dashboards**  
    Open `dashboards/titanic_dashboard.xlsx` → use the **Slicers** (Class, Gender, Age Group) to filter all charts dynamically
 
-4. **Scan the QR code** on the dashboard to open the web summary page
+3. **Scan the QR code** on the dashboard to open the web summary page
 
-> **Requirements:** Microsoft Excel 2016 or later. No additional software, scripts, or packages required.
-
----
-
-## 📄 Full Documentation
-
-Detailed project documentation is in [`docs/titanic_project_documentation.docx`](docs/titanic_project_documentation.docx), covering:
-- Step-by-step data cleaning in Power Query
-- Analysis framework and methodology
-- Dashboard breakdowns with full data tables
-- Conclusions and limitations
+> **Requirements:** Microsoft Excel 2019 or later. No additional software, scripts, or packages required.
 
 ---
 
 ## 📬 Connect
 
 **Author:** Teekay-bee  
-**Project:** Operation Rescue — RMS Titanic Survival Analysis  
-**Date:** April 2025
+**Project:**  RMS Titanic Survival Analysis  
+**Date:** April 2026
 
 If you found this useful, feel free to ⭐ **star the repo** or open an issue with feedback!
 
